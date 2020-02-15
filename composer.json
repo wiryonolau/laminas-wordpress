@@ -1,0 +1,32 @@
+{
+    "name": "wiryonolau/laminas-wordpress",
+    "description" : "Wordpress Base Plugin using Laminas",
+    "license" : "GPL-2.0-or-later",
+    "type" : "library",
+    "keywords" : [
+        "laminas",
+        "wordpress"
+    ],
+    "homepage": "https://github.com/wiryonolau/laminas-wordpress",
+    "authors": [{
+        "name": "Wiryono Lau",
+        "email": "wiryonolau@gmail.com"
+    }],
+    "config": {
+        "platform": {
+            "php": "7.2"
+        }
+    },
+    "require": {
+        "php": "^7.2",
+        "laminas/laminas-mvc": "^3.1",
+        "laminas/laminas-session": "^2.9",
+        "laminas/laminas-navigation": "^2.9",
+        "laminas/laminas-debug" : "^2.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaminasWordpress\\": "src/"
+        }
+    }
+}
