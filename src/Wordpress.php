@@ -23,11 +23,11 @@ class Wordpress implements WordpressHooksInterface
     {
     }
 
-    public function plugin_activation()
+    public function pluginActivation()
     {
     }
 
-    public function plugin_deactivation()
+    public function pluginDeactivation()
     {
     }
 

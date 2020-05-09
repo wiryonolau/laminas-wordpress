@@ -1,7 +1,6 @@
 # LaminasWordpress
 
 Library to create wordpress plugin using Laminas Framework 3 MVC Application
-Fork from laminasmaniacs/zf-to-wp, make it availiable as composer
 
 ## Installation
 
