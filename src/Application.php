@@ -43,8 +43,10 @@ class Application
         $this->options = \Laminas\Stdlib\ArrayUtils::merge($this->options, $options);
     }
 
-    public function setWordpressHooks(WordpressHooksInterface $hooks) {
+    public function setWordpressHooks(WordpressHooksInterface $hooks)
+    {
         $this->wordpressHooks = $hooks;
+        return $this;
     }
 
     public function setPluginDirectory($plugin_dir)
@@ -79,7 +81,8 @@ class Application
         return $this;
     }
 
-    public function enableSession() {
+    public function enableSession()
+    {
         $this->options["use_session"] = true;
         return $this;
     }
@@ -131,8 +134,10 @@ class Application
         register_activation_hook($this->options["plugin_file"], array( $this->wordpressHooks, 'pluginActivation' ));
         register_deactivation_hook($this->options["plugin_file"], array( $this->wordpressHooks, 'pluginDeactivation' ));
 
-        add_action('init', array( $this->wordpressHooks, 'init' ));
         add_filter('posts_results', array( $this->wordpressHooks, 'posts' ));
+        add_filter('template_include', array( $this->wordpressHooks, 'templateInclude'));
+        
+        add_action('init', array( $this->wordpressHooks, 'init' ));
         add_action('template_redirect', array( $this->wordpressHooks,'templateRedirect'));
         add_action('widgets_init', array( $this->wordpressHooks,'registerWidgets'));
         add_action('admin_menu', array( $this->wordpressHooks,'registerAdminNavigation'));
@@ -170,6 +175,6 @@ class Application
         }
 
         $this->wordpressHooks->setRoutePrefix($this->options["route_prefix"])
-                        ->setApplication(MvcApplication::init($config));
+            ->setApplication(MvcApplication::init($config));
     }
 }

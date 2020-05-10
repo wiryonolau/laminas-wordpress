@@ -79,6 +79,11 @@ class Wordpress implements WordpressHooksInterface
         return $query;
     }
 
+    public function templateInclude($template)
+    {
+        return $template;
+    }
+
     public function templateRedirect()
     {
         global $customTemplate;

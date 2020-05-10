@@ -11,6 +11,7 @@ interface WordpressHooksInterface
     public function pluginDeactivation();
     public function log($debug);
     public function posts($query);
+    public function templateInclude();
     public function templateRedirect();
     public function registerScript($scope, array $scripts = array());
     public function registerWidgets();
